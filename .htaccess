@@ -1,0 +1,42 @@
+options -multiviews
+<IfModule mod_rewrite.c>
+RewriteEngine On 
+RewriteBase /project
+RewriteRule ^song/(.*) nghe.php?sid=$1
+RewriteRule ^signup$ signup.php
+RewriteRule ^settings$ settings.php
+RewriteRule ^log_out$ log_out.php
+RewriteRule ^logout$ logout.php
+RewriteRule ^login$ login.php
+RewriteRule ^delete-account$ delete-account.php
+RewriteRule ^confirmemail$ confirmemail.php
+RewriteRule ^submit$ submit.php
+RewriteRule ^gag/(.*) view.php?pid=$1
+RewriteRule ^safe$ safe.php
+RewriteRule ^bay.html$ index.php
+RewriteRule ^random$ random.php
+RewriteRule ^vote$ vote.php
+RewriteRule ^trending$ trending.php
+RewriteRule ^fix/(.*) fix.php?pid=$1
+RewriteRule ^search$ search.php
+RewriteRule ^fast$ fast.php
+RewriteRule ^user/([^/.]+)?/likes$ likes.php?uname=$1&%{QUERY_STRING}
+RewriteRule ^user/([^/.]+)?/messages$ messages.php?uname=$1&%{QUERY_STRING}
+RewriteRule ^user/([^/.]+)?$ user.php?uname=$1&%{QUERY_STRING}
+RewriteRule ^faq$ faq.php
+RewriteRule ^terms_of_service$ terms_of_service.php
+RewriteRule ^privacy_policy$ privacy_policy.php
+RewriteRule ^about$ about.php
+RewriteRule ^rules$ rules.php
+RewriteRule ^contact$ contact.php
+RewriteRule ^forgot$ forgot.php
+RewriteRule ^top$ top.php
+</IfModule>
+<IfModule mod_security.c> 
+   # Turn off mod_security filtering. 
+   SecFilterEngine Off 
+
+   # The below probably isn't needed, 
+   # but better safe than sorry. 
+   SecFilterScanPOST Off 
+</IfModule>
